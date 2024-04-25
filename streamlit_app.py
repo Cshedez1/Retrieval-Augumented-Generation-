@@ -6,7 +6,7 @@ from langchain.vectorstores import Chroma
 from langchain.chains import RetrievalQA
 
 def generate_response(uploaded_file, openai_api_key, query_text):
-# Load document if file is uploaded
+ # Load document if file is uploaded
  if uploaded_file is not None:
    documents = [uploaded_file.read().decode()]
    # Split documents into chunks
@@ -39,8 +39,7 @@ query_text = st.text_input('Enter your question:', placeholder = 'Please provide
 # Form input and query
 result = []
 with st.form('myform', clear_on_submit=True):
-   openai_api_key = st.text_input('OpenAI API Key', type='password', disabled=not
-(uploaded_file and query_text))
+   openai_api_key = st.text_input('OpenAI API Key', type='password', disabled=not (uploaded_file and query_text))
    submitted = st.form_submit_button('Submit', disabled=not(uploaded_file and query_text))
    if submitted and openai_api_key.startswith('sk-'):
     with st.spinner('Calculating...'):

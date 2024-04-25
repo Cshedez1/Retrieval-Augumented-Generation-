@@ -13,13 +13,13 @@ def generate_response(uploaded_file, openai_api_key, query_text):
    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
    texts = text_splitter.create_documents(documents)
    # Select embeddings
-   embeddings = OpenAIEmbeddings(openai_api_key=sk-proj-J5jLmmLbqhrX4ACnrOicT3BlbkFJaLbh3tRHWx3upq5ceZiM)
+   embeddings = OpenAIEmbeddings(openai_api_key="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")
    # Create a vectorstore from documents
    db = Chroma.from_documents(texts, embeddings)
    # Create retriever interface
    retriever = db.as_retriever()
    # Create QA chain
-   qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key=sk-proj-J5jLmmLbqhrX4ACnrOicT3BlbkFJaLbh3tRHWx3upq5ceZiM),
+   qa = RetrievalQA.from_chain_type(llm=OpenAI(openai_api_key="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"),
 chain_type='stuff', retriever=retriever)
    return qa.run(query_text)
 

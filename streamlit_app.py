@@ -1,5 +1,6 @@
-import streamlit as st
+pip install streamlit langchain openai tiktoken
 
+import streamlit as st
 from langchain.llms import OpenAI
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings
